@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcWebAppForAlten", "CalcWebAppForAlten\CalcWebAppForAlten.csproj", "{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcLib", "CalcLib\CalcLib.csproj", "{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
