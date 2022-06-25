@@ -1,5 +1,7 @@
-using CalcWebAppForAlten.DB.SQLServerCommon;
+using CalcWebAppForAlten.Database.DB_MathExpression;
+using CalcWebAppForAlten.Model;
 using System.Data.SqlClient;
+
 
 namespace CalcWebAppForAlten
 {
@@ -9,11 +11,10 @@ namespace CalcWebAppForAlten
 
         public static void Main(string[] args)
         {
-            SqlConnection sqlConnection;
-
+            
             try
             {
-                DB.MathExpressionsHistory.DAO? DAO = DB.MathExpressionsHistory.DAOFactory.Build(DB.MathExpressionsHistory.DAOFactory.SQLServer);
+                DAO? DAO = DAOFactory.Build(DAOFactory.SQLServer);
 
                 if (DAO == null)
                 {
@@ -21,9 +22,10 @@ namespace CalcWebAppForAlten
                 }
                 else
                 {
-                    DB.MathExpressionsHistory.Item item = new DB.MathExpressionsHistory.Item("(4+5+5)", 14);
+                    MathExpression item = new MathExpression("(4+5+5)", 14);
 
                     DAO.Insert(item);
+                    Console.WriteLine(DAO.Get(2).ToString());
                 }
             }
             catch (Exception ex)

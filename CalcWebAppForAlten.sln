@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcWebAppForAlten", "CalcWebAppForAlten\CalcWebAppForAlten.csproj", "{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcWebAppForAlten", "CalcWebAppForAlten\CalcWebAppForAlten.csproj", "{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcLib", "CalcLib\CalcLib.csproj", "{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcLib", "CalcLib\CalcLib.csproj", "{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcWebAPI", "CalcWebAPI\CalcWebAPI.csproj", "{873E1B29-5D3F-41DC-B03F-55C395F84437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcLibTest", "CalcLibTest\CalcLibTest.csproj", "{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{873E1B29-5D3F-41DC-B03F-55C395F84437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{873E1B29-5D3F-41DC-B03F-55C395F84437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{873E1B29-5D3F-41DC-B03F-55C395F84437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{873E1B29-5D3F-41DC-B03F-55C395F84437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
