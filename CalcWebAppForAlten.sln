@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcWebAppForAlten", "CalcWebAppForAlten\CalcWebAppForAlten.csproj", "{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcLib", "CalcLib\CalcLib.csproj", "{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcWebAPI", "CalcWebAPI\CalcWebAPI.csproj", "{873E1B29-5D3F-41DC-B03F-55C395F84437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcLibTest", "CalcLibTest\CalcLibTest.csproj", "{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcLibTest", "CalcLibTest\CalcLibTest.csproj", "{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalcREST", "CalcLibREST\CalcREST.csproj", "{80E11FB5-BA91-4F65-AD57-6FAF3F5CBCF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCalc", "ClientCalc\ClientCalc.csproj", "{97E6B5C9-5D0C-4990-9427-9D44673E9FF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalcDatabaseLib", "CalcDatabaseLib\CalcDatabaseLib.csproj", "{1DD29AB9-57CA-42C9-9B9A-27A9BC8724D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{158D6821-DCC8-4E30-AF64-19ED0BDD92DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A932FB7F-C10E-4B8D-9526-3227A4E11C2B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{873E1B29-5D3F-41DC-B03F-55C395F84437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{873E1B29-5D3F-41DC-B03F-55C395F84437}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{873E1B29-5D3F-41DC-B03F-55C395F84437}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{873E1B29-5D3F-41DC-B03F-55C395F84437}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2D2489F-43A9-4F67-BF7D-ADE94C7A5565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80E11FB5-BA91-4F65-AD57-6FAF3F5CBCF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80E11FB5-BA91-4F65-AD57-6FAF3F5CBCF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80E11FB5-BA91-4F65-AD57-6FAF3F5CBCF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80E11FB5-BA91-4F65-AD57-6FAF3F5CBCF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E6B5C9-5D0C-4990-9427-9D44673E9FF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E6B5C9-5D0C-4990-9427-9D44673E9FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E6B5C9-5D0C-4990-9427-9D44673E9FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E6B5C9-5D0C-4990-9427-9D44673E9FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD29AB9-57CA-42C9-9B9A-27A9BC8724D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD29AB9-57CA-42C9-9B9A-27A9BC8724D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD29AB9-57CA-42C9-9B9A-27A9BC8724D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD29AB9-57CA-42C9-9B9A-27A9BC8724D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

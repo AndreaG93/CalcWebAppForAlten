@@ -1,28 +1,44 @@
-﻿using CalcWebAPI.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-
+using Newtonsoft.Json;
+using CalcREST.Models;
 
 namespace CalcWebAPI.Controllers
 {
     [ApiController]
-    [Route("api/Calc")]
+    [Route("REST/Calc")]
     public class CalcController : ControllerBase
     {
         [HttpPost]
-        [Route("WA_ExecuteCalc")]
+        [Route("Compute/{account}")]
         public IActionResult WA_ExecuteComputation([FromBody] object json)
         {
             return BadRequest(json);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetPerson([FromRoute] int id)
+        [HttpGet("Compute")]
+        public async Task<IActionResult> GetMathExpressionComputation([FromBody] object json)
         {
 
-            Console.WriteLine(id);
+            // var request = Request.
+            double result = 0;
+            Exception myException = null;
 
-            return Ok();
+            try
+            {
+                String rawMathExpression = json.ToString();
+
+                MathExpressionInput rawUserInput = JsonConvert.DeserializeObject<MathExpressionInput>(rawMathExpression);
+
+                result = CalcLib.Calc.Compute(rawMathExpression);
+            }
+            catch (Exception ex)
+            {
+                myException = ex;
+                return BadRequest(ex);
+            }
+
+            return Ok(result);
         }
     }
 }
