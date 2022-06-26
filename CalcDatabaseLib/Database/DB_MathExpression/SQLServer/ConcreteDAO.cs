@@ -2,21 +2,36 @@
 
 using CalcDatabaseLib.Model;
 using System.Data.SqlClient;
+
 public class ConcreteDAO : DAO
 {
     private const String TableName = "MathExpressionHistory";
     private const String Column1 = "id";
     private const String Column2 = "expression";
-    private const String Column3 = "resultExpression";
+    private const string Column3 = "resultExpression";
 
-    private const uint maxMathExpressionRepresentationLenght = 100;
+    private const uint MaxMathExpressionRepresentationLenght = 100;
 
-    public void Delete(MathExpression input)
+    public async Task Delete(MathExpression input)
     {
-        throw new NotImplementedException();
+        string sqlQuery = String.Format("DELETE FROM {0} WHERE {1}={2}",
+            TableName,
+            Column1,
+            input.ID
+            );
+
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        
+        using (SqlConnection connection = GetOpenConnection())
+        {
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
+
+            adapter.InsertCommand = sqlCommand;
+            await adapter.InsertCommand.ExecuteNonQueryAsync();
+        }
     }
 
-    public MathExpression? Get(int id)
+    public async Task<MathExpression?> GetAsync(int id)
     {
         MathExpression? output = null;
 
@@ -24,71 +39,82 @@ public class ConcreteDAO : DAO
         {
             throw new ArgumentException("The ID CANNOT be <= 0");
         }
-        else
+
+        string sqlQuery = String.Format("SELECT {0},{1},{2} FROM {3} WHERE ({4}={5})",
+            Column1,
+            Column2,
+            Column3,
+            TableName,
+            Column1,
+            id);
+
+        using (SqlConnection connection = GetOpenConnection())
         {
-            string sqlQuery = String.Format("SELECT {0},{1},{2} FROM {3} WHERE ({4}={5})",
-                Column1,
-                Column2,
-                Column3,
-                TableName,
-                Column1,
-                id);
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
+            SqlDataReader dataReader = await sqlCommand.ExecuteReaderAsync();
 
-            using (SqlConnection connection = GetOpenConnection())
+            while (dataReader.Read())
             {
-                SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
-                SqlDataReader dataReader = sqlCommand.ExecuteReader();
+                output = new MathExpression((int)dataReader.GetValue(0), dataReader.GetString(1),
+                    dataReader.GetDouble(2));
+            }
+        }
 
-                while (dataReader.Read())
-                {
-                    double dd = dataReader.GetDouble(2);
 
-                    output = new MathExpression((int)dataReader.GetValue(0), dataReader.GetString(1), dataReader.GetDouble(2));
-                }
+        return output;
+    }
+
+    public async Task<List<MathExpression>> GetAllItems()
+    {
+        List<MathExpression> output = new List<MathExpression>();
+        
+        string sqlQuery = String.Format("SELECT * FROM {0}",
+            TableName);
+
+        using (SqlConnection connection = GetOpenConnection())
+        {
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
+            SqlDataReader dataReader = await sqlCommand.ExecuteReaderAsync();
+
+            while (dataReader.Read())
+            {
+                MathExpression item = new MathExpression((int)dataReader.GetValue(0), dataReader.GetString(1),
+                    dataReader.GetDouble(2));
+                
+                output.Add(item);
             }
         }
 
         return output;
     }
 
-    public List<MathExpression> GetAllItems()
+    public async Task InsertAsync(MathExpression input)
     {
-        throw new NotImplementedException();
-    }
-
-    public void Insert(MathExpression input)
-    {
-        if (input.Represation.Length > 100)
+        if (input.Represation.Length > MaxMathExpressionRepresentationLenght)
         {
             throw new ArgumentException("Math representation too long");
         }
-        else
+
+        
+
+        string sqlQuery = String.Format("INSERT INTO {0} ({1},{2}) VALUES ('{3}',{4})",
+            TableName,
+            Column2,
+            Column3,
+            input.Represation,
+            input.Result);
+
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        
+        using (SqlConnection connection = GetOpenConnection())
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
 
-            string sqlQuery = String.Format("INSERT INTO {0} ({1},{2}) VALUES ('{3}',{4})",
-                TableName,
-                Column2,
-                Column3,
-                input.Represation,
-                input.Result);
-
-            using (SqlConnection connection = GetOpenConnection())
-            {
-
-                SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
-
-                adapter.InsertCommand = sqlCommand;
-                adapter.InsertCommand.ExecuteNonQuery();
-            }
+            adapter.InsertCommand = sqlCommand;
+            await adapter.InsertCommand.ExecuteNonQueryAsync();
         }
     }
-
-    List<MathExpression> DAO.GetAllItems()
-    {
-        throw new NotImplementedException();
-    }
-
+    
     private SqlConnection GetOpenConnection()
     {
         SqlConnection output = DatabaseConnectionFactory.Build();

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CalcDatabaseLib\CalcDatabaseLib.csproj" />
     <ProjectReference Include="..\CalcLib\CalcLib.csproj" />
   </ItemGroup>
 

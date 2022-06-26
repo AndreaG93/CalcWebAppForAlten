@@ -1,8 +1,8 @@
 ﻿using System.Data.SqlClient;
 
-namespace CalcWebAppForAlten.Database.DB_MathExpression.SQLServer;
+namespace CalcDatabaseLib.Database.DB_MathExpression.SQLServer;
 
-public class DatabaseConnectionFactory
+public static class DatabaseConnectionFactory
 {
     public static SqlConnection Build()
     {

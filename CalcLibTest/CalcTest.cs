@@ -11,21 +11,21 @@ namespace CalcLibTest
         }
 
         [Theory]
-        [InlineData("(45+5*2)", 55)] 
+        [InlineData("(45+5*2)", 55)]
         [InlineData("(45+5*2/2)", 50)]
         [InlineData("(10*(34+2))", 360)]
         [InlineData("(10+(34+2))+(5*2)-1", 55)]
-        public void UnitTest_B(string rawMathExpression, double exprectedValue)
+        public void UnitTest_B(string rawMathExpression, double expectedValue)
         {
-            Assert.Equal(exprectedValue, Calc.Compute(rawMathExpression));
+            Assert.Equal(expectedValue, Calc.Compute(rawMathExpression));
         }
 
         [Theory]
         [InlineData("(45 + 5  *2)", 55)]
         [InlineData("(45+5*2  /2)", 50)]
-        public void UnitTest_C(string rawMathExpression, double exprectedValue)
+        public void UnitTest_C(string rawMathExpression, double expectedValue)
         {
-            Assert.Equal(exprectedValue, Calc.Compute(rawMathExpression));
+            Assert.Equal(expectedValue, Calc.Compute(rawMathExpression));
         }
 
         [Theory]
