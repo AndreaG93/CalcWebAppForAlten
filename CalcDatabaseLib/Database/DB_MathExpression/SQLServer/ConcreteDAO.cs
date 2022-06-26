@@ -31,6 +31,11 @@ public class ConcreteDAO : DAO
         }
     }
 
+    public Task Delete(int id)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<MathExpression?> GetAsync(int id)
     {
         MathExpression? output = null;
@@ -59,12 +64,11 @@ public class ConcreteDAO : DAO
                     dataReader.GetDouble(2));
             }
         }
-
-
+        
         return output;
     }
 
-    public async Task<List<MathExpression>> GetAllItems()
+    public async Task<List<MathExpression>> GetAll()
     {
         List<MathExpression> output = new List<MathExpression>();
         
@@ -88,16 +92,19 @@ public class ConcreteDAO : DAO
         return output;
     }
 
-    public async Task InsertAsync(MathExpression input)
+    public Task DeleteAllAsync()
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<int> InsertAsync(MathExpression input)
     {
         if (input.Represation.Length > MaxMathExpressionRepresentationLenght)
         {
             throw new ArgumentException("Math representation too long");
         }
-
         
-
-        string sqlQuery = String.Format("INSERT INTO {0} ({1},{2}) VALUES ('{3}',{4})",
+        string sqlQuery = String.Format("INSERT INTO {0} ({1},{2}) VALUES ('{3}',{4}); SELECT SCOPE_IDENTITY();",
             TableName,
             Column2,
             Column3,
@@ -111,7 +118,7 @@ public class ConcreteDAO : DAO
             SqlCommand sqlCommand = new SqlCommand(sqlQuery, connection);
 
             adapter.InsertCommand = sqlCommand;
-            await adapter.InsertCommand.ExecuteNonQueryAsync();
+            return Convert.ToInt32(await adapter.InsertCommand.ExecuteScalarAsync());
         }
     }
     
