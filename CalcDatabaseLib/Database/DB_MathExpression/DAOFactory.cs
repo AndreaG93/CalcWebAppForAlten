@@ -1,4 +1,4 @@
-﻿namespace CalcWebAppForAlten.Database.DB_MathExpression;
+﻿namespace CalcDatabaseLib.Database.DB_MathExpression;
 
 public class DAOFactory
 {

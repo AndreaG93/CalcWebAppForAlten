@@ -1,6 +1,6 @@
-﻿using CalcWebAppForAlten.Model;
+﻿using CalcDatabaseLib.Model;
 
-namespace CalcWebAppForAlten.Database.DB_MathExpression;
+namespace CalcDatabaseLib.Database.DB_MathExpression;
 
 public interface DAO
 {

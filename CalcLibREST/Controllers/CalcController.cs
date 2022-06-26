@@ -31,6 +31,10 @@ public class CalcController : ControllerBase
             output = new MathExpressionOutput(result);
 
             outputJSON = JsonSerializer.Serialize(output);
+
+
+
+
             return StatusCode(StatusCodes.Status200OK, outputJSON);
         }
         catch (Exception ex)

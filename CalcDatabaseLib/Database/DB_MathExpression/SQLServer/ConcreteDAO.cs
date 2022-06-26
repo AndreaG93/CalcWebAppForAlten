@@ -1,6 +1,6 @@
-﻿namespace CalcWebAppForAlten.Database.DB_MathExpression.SQLServer;
+﻿namespace CalcDatabaseLib.Database.DB_MathExpression.SQLServer;
 
-using CalcWebAppForAlten.Model;
+using CalcDatabaseLib.Model;
 using System.Data.SqlClient;
 public class ConcreteDAO : DAO
 {

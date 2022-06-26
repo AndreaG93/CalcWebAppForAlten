@@ -1,4 +1,4 @@
-﻿namespace CalcWebAppForAlten.Model
+﻿namespace CalcDatabaseLib.Model
 {
     public class MathExpression
     {

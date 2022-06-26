@@ -1,4 +1,4 @@
-﻿namespace CalcWebAppForAlten.Database.DB_MathExpression.EntityFramework
+﻿namespace CalcDatabaseLib.Database.DB_MathExpression.EntityFramework
 {
     public class ConcreteDAO
     {

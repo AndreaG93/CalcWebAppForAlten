@@ -1,9 +1,9 @@
-using CalcWebAppForAlten.Database.DB_MathExpression;
-using CalcWebAppForAlten.Model;
+using CalcDatabaseLib.Database.DB_MathExpression;
+using CalcDatabaseLib.Model;
 using System.Data.SqlClient;
 
 
-namespace CalcWebAppForAlten
+namespace CalcDatabaseLib
 {
     public class Program
     {
